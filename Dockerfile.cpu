@@ -1,0 +1,11 @@
+FROM tensorflow/tensorflow:1.13.1-py3 
+
+COPY src /src
+
+WORKDIR /src
+
+RUN pip install -r requirements.txt
+
+ENV PYTHONPATH='/src/:$PYTHONPATH'
+
+ENTRYPOINT [ "entrypoints/entrypoint.sh" ]
